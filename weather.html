@@ -5,11 +5,14 @@
         <title>Weather</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="weather.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     </head>
     <body>
-        <div class="main container">
-            <input id="inputCity" placeholder="city name"></input>
-            <button id="getWeather_Btn">search weather</button>
+        <div class="main-container">
+            <img class="sun" src="http://www.iconsdb.com/icons/download/white/sun-3-512.png"/>
+            <h1 class="title">Get weather for your location!</h1>
+            <input id="inputCity" placeholder="Location"></input>
+            <button id="getWeather_Btn">search</button>
             <p class="temperature"></p>
             <p class="description"></p>
             <p class="minMax"></p> 
@@ -17,6 +20,7 @@
             <p class="humidity"></p>              
             <p class="cord"></p>
         </div>
+        <div class="appBack"></div>
         <script type="text/javascript" src="weather.js"></script>
     </body>
 </html>

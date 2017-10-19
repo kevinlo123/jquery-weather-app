@@ -25,14 +25,18 @@ $(document).ready(function(){
         $("p").html("");
         $(".temperature").append("The weather in " + cityName + " " + country + "," + " is " + cityTemp + "&#8457;");
         $(".description").append(description + icon);
-        $(".minMax").append("Min: " + cityTempMin + "&#8457;" + " Max: " + cityTempMax + "&#8457;");  
+        $(".minMax").append("Low: " + cityTempMin + "&#8457;" + " High: " + cityTempMax + "&#8457;");  
         $(".pressure").append("Pressure: " + pressure + " hpa");
         $(".humidity").append("Humidity: " + humidity + "%")              
-        $(".cord").append("Geo Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
+        $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
       }
    });
   $("#getWeather_Btn").on("click" , function(){ /*on click function for the fading in of another city user searches didnt work without it*/
-    $("p").fadeOut(150);
+    $("p").fadeOut(25); 
+    var height = 600;
+    var top = 10;
+    $(".appBack").css("height", height + "px"); /* growing of the div behind the inputs and main content */
+    $(".appBack").css("top", top + "px");  
   });
 });
 

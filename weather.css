@@ -1,17 +1,89 @@
 body{
-    background: linear-gradient(#4ECDC4 , #556270);
+    background: url("http://thedesignblitz.com/wp-content/uploads/2014/03/blur_1x-1.jpg");
     height: 730px;
     width: auto;
-    margin: 0;
-    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-size: cover;
+}
+
+.main-container{
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    transition: .6s all;
+    border-radius: 3px;
+    margin-top: 5%;
+    position: relative;
+    bottom: 80px;
+}
+
+.sun{
+    height: 50px;
+    width: 50px;
+    animation: spin 9s infinite linear;
+}
+
+@keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}   
+}
+
+.title{
+    font-weight: 100;
+    text-align: left;
+    font-size: 2.5em;
+    text-align: center;
+    color: white;
+    margin-top: 0;
 }
 
 .description{
     margin-top: -60px;
 }
 
+#getWeather_Btn{
+    height: 46px;
+    width: 150px;
+    font-size: 1.5em;
+    color: #556270;
+    border-radius: 3px;
+    background: white;
+    border: 1px solid;
+    position: relative;
+    bottom: 2px;
+}
+
+#getWeather_Btn:hover{
+    color: white;
+    transition: .3s all; 
+    border: 1px solid #556270;
+    background: #556270;
+}
+
+#getWeather_Btn:focus{
+    outline-color: #74AFAD;
+}
+
+#inputCity{
+    height: 43px;
+    width: 200px;
+    font-size: 1.8em;
+    color: #556270;
+    border-radius: 3px;
+    border: 1px solid;
+    margin-left: 136px;
+    margin-right: 23px;
+}
+
+#inputCity:focus{
+    outline-color: #74AFAD;
+}
+
 p{
+    font-size: 1.8em;
     display: none;
+    text-align: center;
+    color: white;
 }
 
 img{
@@ -19,4 +91,17 @@ img{
     top: 33px;
     height: 78px;
     width: 78px;
+}
+
+.appBack{
+    height: 300px;
+    width: 52%;
+    background: white;
+    opacity: .2;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 420px;
+    left: 310px;
+    z-index: -3;
+    transition: .5s all;
 }
