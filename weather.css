@@ -105,3 +105,42 @@ img{
     z-index: -3;
     transition: .5s all;
 }
+
+.toDo{
+    color: white;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    padding: 1% 1% 1% 1%;
+    transition: .1s all;
+    border-radius: 3px;
+    font-size: .8em;
+    margin-top: 20px;
+    display: none;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 25px;
+}
+
+.exitTo{
+    position: relative;
+    left: 63px;
+    bottom: 17px;
+    background: white;
+    color: #778899;
+    border-radius: 50%;
+    width: 10px;
+    padding-left: 8px;
+    padding-right: 5px;
+    transition: .5s all;
+    height: 21px;
+    cursor: pointer;
+    display: none;
+}
+
+.toDo:hover{
+    opacity: .6;
+}

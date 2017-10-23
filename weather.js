@@ -31,13 +31,25 @@ $(document).ready(function(){
         $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
       }
    });
+
   $("#getWeather_Btn").on("click" , function(){ /*on click function for the fading in of another city user searches didnt work without it*/
     $("p").fadeOut(25); 
-    var height = 600;
+    var height = 650;
     var top = 10;
+    $(".toDo").fadeIn();
+    $(".exitTo").fadeIn();
     $(".appBack").css("height", height + "px"); /* growing of the div behind the inputs and main content */
-    $(".appBack").css("top", top + "px");  
+    $(".appBack").css("top", top + "px");
+    $(".toDo").css("margin-left" , 400);
+    $(".toDo").css("background-color" , "#778899");
+    $(".exitTo").css("margin-left" , 400); 
   });
+
+  $(".exitTo").on("click", function(){
+    $(this).css("display" , "none");
+    $(".toDo").css("display" , "none");
+  }); 
+          
 });
 
 
