@@ -1,51 +1,58 @@
 /* CREATING A WEATHER CRUD APPLICATION USING THE OPEN WEATHER API */
 
 $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS FUNCTION HAPPENING BEFORE THE PAGE LOADS
-  $("#getWeather_Btn").on("click" , () => { // SEARCH BUTTON ON CLICK EVENT 
+  $("#getWeather_Btn").on("click" , () => { // SEARCH BUTTON ON CLICK EVENT
       let city = $("#inputCity").val(); // GETTING THE VALUE FROM THE INPUT AND STORING INTO THE CITY VARIABLE 
-      $("#inputCity").val("");// CLEARING FOR UI PURPOSES
-      const apiCall = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=cd63f1a3797d35b613e676b91131bf3b"; /* API CALL VARIABLE HOLDING THE URL AS WELL ASS THE KEY 
-                                                                                                                                              CONCATINATING THE CITY VARIABLE HOLDING THE USERS SEARCHED LOCATION*/
-      $.getJSON(apiCall,weatherCall);//GET JSON METHOD SENDING APICALL VARIABLE AS PARAMETER AND WEATHERCALL.
 
-      function weatherCall(weatherData){ // WEATHER CALL FUNCTION RETRIEVING THE DATA FROM THE JSON OBJECT AND STORING IT IN VARIABLES
-        const cityName = (weatherData.name);
-        const cityHumidity = (weatherData.main.humidity);
-        const cityTemp = (weatherData.main.temp);
-        const cityTempMin = (weatherData.main.temp_min);
-        const cityTempMax = (weatherData.main.temp_max);
-        const pressure = (weatherData.main.pressure); 
-        const humidity = (weatherData.main.humidity);                
-        const description = (weatherData.weather[0].description);
-        const longitude = (weatherData.coord.lon);
-        const latitude = (weatherData.coord.lat);        
-        const icon = ("<img src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
-        const country = (weatherData.sys.country);
-        const wind = (weatherData.wind.speed);
-        console.log(weatherData);
-        $("p").fadeIn(850); // FADING ALL THE PARAGRAPH ELEMENTS HOLDING THE DATA AND STRINGS THAT I WANT DISPLAYED WHEN THE USER HAS CLICKED SEARCH
-        $("p").html("");
-        $(".temperature").append("The weather in " + cityName + " " + country + "," + " is " + cityTemp + "&#8457;"); /*  CONCATINATING DATE WITH STRINGS
-                                                                                                                     MAIN WEATHER APP INFORMATION BEING RETRIEVED */
-        $(".description").append(description + icon);                                                                   
-        $(".minMax").append("Low: " + cityTempMin + "&#8457;" + " High: " + cityTempMax + "&#8457;");  
-        $(".pressure").append("Pressure: " + pressure + " hpa");
-        $(".humidity").append("Humidity: " + humidity + "%")              
-        $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
+      if(city == false){ //conditional stoping css changes if the input has no value
+        confirm("please input a location");
+        $(".toDo").css("display" , "none");
+        $(".exitTo").css("display" , "none");
+        $(".appBack").css("height", 300 + "px")
+      }else{
+        $("#inputCity").val("");// CLEARING FOR UX PURPOSES
+        const apiCall = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=cd63f1a3797d35b613e676b91131bf3b"; /* API CALL VARIABLE HOLDING THE URL AS WELL ASS THE KEY 
+                                                                                                                                                CONCATINATING THE CITY VARIABLE HOLDING THE USERS SEARCHED LOCATION*/
+        $.getJSON(apiCall,weatherCall);//GET JSON METHOD SENDING APICALL VARIABLE AS PARAMETER AND WEATHERCALL.
+
+        function weatherCall(weatherData){ // WEATHER CALL FUNCTION RETRIEVING THE DATA FROM THE JSON OBJECT AND STORING IT IN VARIABLES
+          const cityName = (weatherData.name);
+          const cityHumidity = (weatherData.main.humidity);
+          const cityTemp = (weatherData.main.temp);
+          const cityTempMin = (weatherData.main.temp_min);
+          const cityTempMax = (weatherData.main.temp_max);
+          const pressure = (weatherData.main.pressure); 
+          const humidity = (weatherData.main.humidity);                
+          const description = (weatherData.weather[0].description);
+          const longitude = (weatherData.coord.lon);
+          const latitude = (weatherData.coord.lat);        
+          const icon = ("<img src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
+          const country = (weatherData.sys.country);
+          const wind = (weatherData.wind.speed);
+          console.log(weatherData);
+          $("p").fadeIn(850); // FADING ALL THE PARAGRAPH ELEMENTS HOLDING THE DATA AND STRINGS THAT I WANT DISPLAYED WHEN THE USER HAS CLICKED SEARCH
+          $("p").html("");
+          $(".temperature").append("The weather in " + cityName + " " + country + "," + " is " + cityTemp + "&#8457;"); /*  CONCATINATING DATE WITH STRINGS
+                                                                                                                      MAIN WEATHER APP INFORMATION BEING RETRIEVED */
+          $(".description").append(description + icon);                                                                   
+          $(".minMax").append("Low: " + cityTempMin + "&#8457;" + " High: " + cityTempMax + "&#8457;");  
+          $(".pressure").append("Pressure: " + pressure + " hpa");
+          $(".humidity").append("Humidity: " + humidity + "%")              
+          $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
+          $(".toDo").css("margin-left" , 400);
+          $(".toDo").fadeIn();
+          $(".exitTo").fadeIn();
+          $(".appBack").css("height", 650 + "px");
+          $(".appBack").css("top", 10 + "px");
+        }
       }
    });
 
   $("#getWeather_Btn").on("click" , () => {  // on click function for the fading in of another city user searches didnt work without it*/
     $("p").fadeOut(25); 
-    const height = 650;
-    const top = 10;
-    $(".toDo").fadeIn(); // TO DO BUTTON BEING FADED IN
-    $(".exitTo").fadeIn();// CANCEL BUTTON ON THE TO DO BUTTON
-    $(".appBack").css("height", height + "px"); // growing of the div behind the inputs and main content
-    $(".appBack").css("top", top + "px");
-    $(".toDo").css("margin-left" , 400); // CSS CHANGES ON THE TO DO'S BUTTTON WHEN USER CLICKS SEARCH
     $(".toDo").css("background-color" , "#778899");
     $(".exitTo").css("margin-left" , 400); // CANCEL BUTTON CSS CHANGE
+    $(".hello , .add , .inp").css("display" , "none");
   });
 
   $(".exitTo").on("click", () => { // EXITING OUT OF THE TO DO'S BUTTON WHEN CLICKED IN CASE USER DOESNT WANT TO USE FEATURE
@@ -65,6 +72,27 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     $(".hello , .add , .inp").fadeIn(2000);
   });
 
+  /**********************************/
+  /**TO DO LIST PART OF THE APP******/
+
+  let taskArray = [];
+
+  $(".add").on("click" , () => {
+    let task = $(".inp").val();    
+    console.log(task);
+    taskArray.push(task);
+    $(".inp").val("");
+    $("ol").html("<li>"+ taskArray.join("</li><li>") + "</li>");
+    const edit = "edit";
+    const remove = "remove";
+    $("li").append("<button class='remove-btn'> " + edit + "</button>" + "<button class='edit-btn'> " + remove + "</button>");
+    $(".remove-btn").on("click" , () => {
+      console.log("remove button works");
+    });
+    $(".edit-btn").on("click" , () => {
+      console.log("edit button works");
+    });
+  });
 });
 
 

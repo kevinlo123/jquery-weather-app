@@ -1,7 +1,7 @@
 /*****************************************
 ********** TAG SELECTORS *****************/
 body{
-    background: url("http://thedesignblitz.com/wp-content/uploads/2014/03/blur_1x-1.jpg");
+    background: linear-gradient(#000428,#004e92);
     height: 730px;
     width: auto;
     font-family: 'Lato', sans-serif;
@@ -20,6 +20,15 @@ img{
     top: 33px;
     height: 78px;
     width: 78px;
+}
+
+ol{
+    position: relative;
+    left: 35%;
+    bottom: 9%;
+    font-size: 1.6em;
+    width: 55%;
+    color: white;
 }
 
 h2{
@@ -47,13 +56,9 @@ h2{
 
 #getWeather_Btn:hover{
     color: white;
-    transition: .3s all; 
-    border: 1px solid #556270;
-    background: #556270;
-}
-
-#getWeather_Btn:focus{
-    outline-color: #74AFAD;
+    transition: .2s all; 
+    border: 1px solid white;
+    background: #004e92;
 }
 
 #inputCity{
@@ -65,10 +70,6 @@ h2{
     border: 1px solid;
     margin-left: 136px;
     margin-right: 23px;
-}
-
-#inputCity:focus{
-    outline-color: #74AFAD;
 }
 
 /*****************************************
@@ -196,6 +197,18 @@ h2{
     bottom: 77px;
     cursor: pointer;
 }
+
+.add:hover{
+    color: white;
+    transition: .2s all; 
+    border: 1px solid white;
+    background: #004e92;
+}
+
+.remove-btn{
+    margin: 0 15px 0 15px;
+}
+
 
 
 
