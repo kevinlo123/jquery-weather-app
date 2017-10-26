@@ -87,10 +87,10 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     const remove = "remove";
     $("li").append("<button class='remove-btn'> " + edit + "</button>" + "<button class='edit-btn'> " + remove + "</button>");
     $(".remove-btn").on("click" , () => {
-      console.log("remove button works");
+      console.log("remove button working");
     });
     $(".edit-btn").on("click" , () => {
-      console.log("edit button works");
+      console.log("edit button working");
     });
   });
 });
