@@ -8,7 +8,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
         confirm("please input a location");
         $(".toDo").css("display" , "none");
         $(".exitTo").css("display" , "none");
-        $(".appBack").css("height", 300 + "px")
+        $(".appBack").css("height", 320 + "px")
       }else{
         $("#inputCity").val("");// CLEARING FOR UX PURPOSES
         const apiCall = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=cd63f1a3797d35b613e676b91131bf3b"; /* API CALL VARIABLE HOLDING THE URL AS WELL ASS THE KEY 
@@ -44,6 +44,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           $(".exitTo").fadeIn();
           $(".appBack").css("height", 650 + "px");
           $(".appBack").css("top", 10 + "px");
+          $(".time").append(("Time: " + new Date().getHours() % 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
         }
       }
    });
@@ -75,22 +76,61 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   /**********************************/
   /**TO DO LIST PART OF THE APP******/
 
-  let taskArray = [];
+  let taskArray = []; //empty array where to do items will be stored
 
   $(".add").on("click" , () => {
     let task = $(".inp").val();    
-    console.log(task);
+    console.log(taskArray);
     taskArray.push(task);
     $(".inp").val("");
     $("ol").html("<li>"+ taskArray.join("</li><li>") + "</li>");
     const edit = "edit";
     const remove = "remove";
-    $("li").append("<button class='remove-btn'> " + edit + "</button>" + "<button class='edit-btn'> " + remove + "</button>");
-    $(".remove-btn").on("click" , () => {
-      console.log("remove button working");
+    $("li").append("<button class='edit-btn'> " + edit + "</button>" + "<button class='remove-btn'> " + remove + "</button>");
+    $(".remove-btn").eq(0).on("click" , () => {
+      $(".remove-btn").parent().eq(0).remove();
+      taskArray.shift();
+      console.log(taskArray)
     });
-    $(".edit-btn").on("click" , () => {
-      console.log("edit button working");
+    $(".remove-btn").eq(1).on("click" , () => {
+      $(".remove-btn").parent().eq(1).remove();      
+      taskArray.splice(1,1);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(2).on("click" , () => {
+      $(".remove-btn").parent().eq(2).remove();
+      taskArray.splice(2,2);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(3).on("click" , () => {
+      $(".remove-btn").parent().eq(3).remove();
+      taskArray.splice(3,3);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(4).on("click" , () => {
+      $(".remove-btn").parent().eq(4).remove();
+      taskArray.splice(4,4);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(5).on("click" , () => {
+      $(".remove-btn").parent().eq(5).remove();
+      taskArray.splice(5,5);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(6).on("click" , () => {
+      $(".remove-btn").parent().eq(6).remove();
+      taskArray.splice(6,6);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(7).on("click" , () => {
+      $(".remove-btn").parent().eq(7).remove();
+      taskArray.splice(7,7);
+      console.log(taskArray)
+    });
+    $(".remove-btn").eq(8).on("click" , () => {
+      $(".remove-btn").parent().eq(8).remove();
+      taskArray.splice(8,8);
+      console.log(taskArray)
     });
   });
 });

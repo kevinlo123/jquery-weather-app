@@ -111,16 +111,16 @@ h2{
 }
 
 .appBack{
-    height: 300px;
+    height: 320px;
     width: 52%;
     background: white;
     opacity: .2;
     border-radius: 5px;
     position: absolute;
-    bottom: 420px;
+    bottom: 425px;
     left: 310px;
     z-index: -3;
-    transition: .5s all;
+    transition: .3s all;
 }
 
 .toDo{
