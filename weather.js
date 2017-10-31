@@ -88,30 +88,48 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   });
 
   /**********************************
-   *TO DO LIST CODE */
- 
+   *TO DO LIST CODE */ 
+  
   $(".add").on('click', () => {
     addTodoItem(); // running add to do function when add button clicked
   });  
 
-  const addTodoItem = () =>{
+  const addTodoItem = () => {
     let todoItem = $(".inp").val();
-    $(".todo-list").append("<li>" +  todoItem + " <button class='todo-item-delete'>" + "Delete</button></li>");
+    $(".todo-list").append("<li>" +  todoItem + "<button class='todo-item-done'>" + "<i class='fa fa-check' aria-hidden='true'></i>" +
+    "</button>" +  "<button class='todo-item-delete'>" + "<i class='fa fa-trash-o' aria-hidden='true'></i>" +
+    "</button>" + "</li>");
     $(".inp").val("");
   }
 
+  /************************ DELETE BUTTON *******************/
+
   $(".todo-list").on('click', '.todo-item-delete', function(event){
     event.preventDefault(); // preventing form event from happening
-    const item = this; 
+    let item = this;
     deleteTodoItem(event, item)
   });
   
   const deleteTodoItem = (event, item) => {
     event.preventDefault(); // preventing form event from happening
-    $(item).parent().fadeOut('fast', function() { 
+    $(item).parent().fadeOut('fast', () => { 
       $(item).parent().remove(); // this being passed in item so li gets removed
     });
-  }
+  };
+
+  /************************ DONE BUTTON *******************/
+
+  $(".todo-list").on('click', '.todo-item-done', function(event){
+    event.preventDefault(); // preventing form event from happening
+    let item = this;
+    taskDone(event, item)
+  });
+
+  const taskDone = (event, item) => {
+    event.preventDefault(); // preventing form event from happening
+    $(item).parent().toggleClass("task-finished");              
+  };
+
 });
 
 

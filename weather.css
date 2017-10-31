@@ -89,6 +89,7 @@ h2{
     height: 50px;
     width: 50px;
     animation: spin 9s infinite linear;
+    cursor: pointer;
 }
 
 @keyframes spin {
@@ -204,6 +205,29 @@ h2{
     background: #004e92;
 }
 
+.todo-item-done{
+    margin: 0 10px 0 10px;
+    background: limegreen;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.todo-item-delete{
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 19px;
+    width: 23px;  
+    cursor: pointer;  
+}
+
+.task-finished{
+    text-decoration: line-through;
+    color: grey;
+    cursor: pointer; 
+}
 
 
 /**********************************************************
