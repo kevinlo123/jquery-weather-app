@@ -129,7 +129,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     event.preventDefault(); // preventing form event from happening
     $(item).parent().toggleClass("task-finished");              
   };
-
+//edit button next
 });
 
 

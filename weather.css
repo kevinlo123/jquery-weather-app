@@ -226,7 +226,7 @@ h2{
 .task-finished{
     text-decoration: line-through;
     color: grey;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 
