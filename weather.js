@@ -1,6 +1,19 @@
 /* CREATING A WEATHER CRUD APPLICATION USING THE OPEN WEATHER API */
 
 $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS FUNCTION HAPPENING BEFORE THE PAGE LOADS
+
+  $(".sun").on("click" , () => { // CLICK EVENT MAKING THE SUN RESET APPLICATION
+    $(".toDo").css("display" , "none");
+    $(".exitTo").css("display" , "none");
+    $(".appBack").css("height", 320 + "px");
+    $(".exitTo").css("display" , "none");
+    $(".add").css("display" , "none");
+    $("li").css("display" , "none");
+    $(".inp").css("display" , "none");
+    $(".hello").css("display" , "none");
+    $("p").css("display" , "none");
+  });
+
   $("#getWeather_Btn").on("click" , () => { // SEARCH BUTTON ON CLICK EVENT
       let city = $("#inputCity").val(); // GETTING THE VALUE FROM THE INPUT AND STORING INTO THE CITY VARIABLE 
 
@@ -8,7 +21,8 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
         confirm("please input a location");
         $(".toDo").css("display" , "none");
         $(".exitTo").css("display" , "none");
-        $(".appBack").css("height", 320 + "px")
+        $(".appBack").css("height", 320 + "px");
+        $("li").css("display" , "none");        
       }else{
         $("#inputCity").val("");// CLEARING FOR UX PURPOSES
         const apiCall = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=imperial&appid=cd63f1a3797d35b613e676b91131bf3b"; /* API CALL VARIABLE HOLDING THE URL AS WELL ASS THE KEY 
@@ -73,66 +87,31 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     $(".hello , .add , .inp").fadeIn(2000);
   });
 
-  /**********************************/
-  /**TO DO LIST PART OF THE APP******/
+  /**********************************
+   *TO DO LIST CODE */
+ 
+  $(".add").on('click', () => {
+    addTodoItem(); // running add to do function when add button clicked
+  });  
 
-  let taskArray = []; //empty array where to do items will be stored
-
-  $(".add").on("click" , () => {
-    let task = $(".inp").val();    
-    console.log(taskArray);
-    taskArray.push(task);
+  const addTodoItem = () =>{
+    let todoItem = $(".inp").val();
+    $(".todo-list").append("<li>" +  todoItem + " <button class='todo-item-delete'>" + "Delete</button></li>");
     $(".inp").val("");
-    $("ol").html("<li>"+ taskArray.join("</li><li>") + "</li>");
-    const edit = "edit";
-    const remove = "remove";
-    $("li").append("<button class='edit-btn'> " + edit + "</button>" + "<button class='remove-btn'> " + remove + "</button>");
-    $(".remove-btn").eq(0).on("click" , () => {
-      $(".remove-btn").parent().eq(0).remove();
-      taskArray.shift();
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(1).on("click" , () => {
-      $(".remove-btn").parent().eq(1).remove();      
-      taskArray.splice(1,1);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(2).on("click" , () => {
-      $(".remove-btn").parent().eq(2).remove();
-      taskArray.splice(2,2);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(3).on("click" , () => {
-      $(".remove-btn").parent().eq(3).remove();
-      taskArray.splice(3,3);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(4).on("click" , () => {
-      $(".remove-btn").parent().eq(4).remove();
-      taskArray.splice(4,4);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(5).on("click" , () => {
-      $(".remove-btn").parent().eq(5).remove();
-      taskArray.splice(5,5);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(6).on("click" , () => {
-      $(".remove-btn").parent().eq(6).remove();
-      taskArray.splice(6,6);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(7).on("click" , () => {
-      $(".remove-btn").parent().eq(7).remove();
-      taskArray.splice(7,7);
-      console.log(taskArray)
-    });
-    $(".remove-btn").eq(8).on("click" , () => {
-      $(".remove-btn").parent().eq(8).remove();
-      taskArray.splice(8,8);
-      console.log(taskArray)
-    });
+  }
+
+  $(".todo-list").on('click', '.todo-item-delete', function(event){
+    event.preventDefault(); // preventing form event from happening
+    const item = this; 
+    deleteTodoItem(event, item)
   });
+  
+  const deleteTodoItem = (event, item) => {
+    event.preventDefault(); // preventing form event from happening
+    $(item).parent().fadeOut('fast', function() { 
+      $(item).parent().remove(); // this being passed in item so li gets removed
+    });
+  }
 });
 
 
