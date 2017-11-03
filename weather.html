@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Weather</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="weather.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <script src="https://use.fontawesome.com/f5fb6e9872.js"></script>
     </head>
     <body>
-        <input id="inputCity" placeholder="city name"></input>
-        <button id="getWeather_Btn">search weather for this city</button>
-        <p></p>
-        <script type="text/javascript" src="weather.js"></script>
-    </body>
+        <!--  HTML FOR THE API CONTENT -->
+        <div class="main-container">
+            <img class="sun" src="http://www.bedfordlibrary.net/wp-content/uploads/2016/07/checkoutIcon.png"/>
+            <h1 class="title">Get weather for your location!</h1>
+            <input id="inputCity" placeholder="Location"></input>
+            <button id="getWeather_Btn">Search</button>
+            <h2><a class="toDo" href="#">To Do's</a></h2>
+            <div class="exitTo">x</div>                                    
+            <p class="temperature"></p>
+            <p class="description"></p>
+            <p class="minMax"></p> 
+            <p class="pressure"></p>  
+            <p class="humidity"></p>              
+            <p class="cord"></p>
+            <p class="time"></p>
+        </div>
+        <!-- ENDS -->
+        <!-- CONTENT FOR TO DO LIST FEATURE -->
+        <h1 class="hello">Plans for the day.</h1>
+        <form>
+            <input type="text" class="inp" placeholder="Task" />
+            <input type="button" class="add" value="Add task">
+        </form>
+        <form>
+            <ol class="todo-list">
+            </ol>
+        </form>
+        <!-- ENDS TO DO -->
+        <div class="appBack"></div><!-- BACK TRANSPARENT DIV BEHIND ALL CONTENT HERE -->
+        <script type="text/javascript" src="weather.js"></script>         
+    </body>  
 </html>
