@@ -17,7 +17,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $("#getWeather_Btn").on("click" , () => { // SEARCH BUTTON ON CLICK EVENT
       let city = $("#inputCity").val(); // GETTING THE VALUE FROM THE INPUT AND STORING INTO THE CITY VARIABLE 
 
-      if(city == false){ //conditional stoping css changes if the input has no value
+      if(city == ""){ //conditional stoping css changes if the input has no string as value
         confirm("please input a location");
         $(".toDo").css("display" , "none");
         $(".exitTo").css("display" , "none");
@@ -91,6 +91,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
    *TO DO LIST CODE */ 
   
   $(".add").on('click', () => {
+    event.preventDefault();
     addTodoItem(); // running add to do function when add button clicked
   });  
 
@@ -129,7 +130,6 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     event.preventDefault(); // preventing form event from happening
     $(item).parent().toggleClass("task-finished");              
   };
-//edit button next
 });
 
 

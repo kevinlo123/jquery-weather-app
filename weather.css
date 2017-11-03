@@ -1,15 +1,18 @@
 /*****************************************
 ********** TAG SELECTORS *****************/
+html{
+    height: 100%;
+    font-size: 15px;
+}
 body{
     background: linear-gradient(#000428,#004e92);
-    height: 730px;
-    width: auto;
+    width: 100%;
+    height: auto;
     font-family: 'Lato', sans-serif;
-    background-size: cover;
 }
 
 p{
-    font-size: 1.8em;
+    font-size: 1.8rem;
     display: none;
     text-align: center;
     color: white;
@@ -17,16 +20,16 @@ p{
 
 img{
     position: relative;
-    top: 33px;
-    height: 78px;
-    width: 78px;
+    top: 2rem;
+    height: 5rem;
+    width: 5rem;
 }
 
 ol{
     position: relative;
-    left: 35%;
-    bottom: 65px;
-    font-size: 1.6em;
+    left: 30rem;
+    bottom: 6rem;
+    font-size: 1.6rem;
     color: white;
 }
 
@@ -34,41 +37,39 @@ h2{
     margin: 0;
     padding: 0;
     position: relative;
-    top: 25px;
+    top: 1.5rem;
 }
 
 /*****************************************
 ********** ID SELECTORS *****************/
 
 #getWeather_Btn{
-    height: 46px;
-    width: 150px;
-    font-size: 1.5em;
-    color: #556270;
-    border-radius: 3px;
+    height: 3rem;
+    width: 25%;
+    font-size: 1.5rem;
+    border-radius: .2rem;
     background: white;
-    border: 1px solid;
-    position: relative;
-    bottom: 2px;
+    border: none;
     cursor: pointer;
+    position: relative;
+    bottom: .1rem;
 }
 
 #getWeather_Btn:hover{
     color: white;
     transition: .2s all; 
-    border: 1px solid white;
+    border: .05rem solid white;
     background: #004e92;
 }
 
 #inputCity{
-    height: 43px;
-    width: 200px;
-    font-size: 1.8em;
-    color: #556270;
-    border-radius: 3px;
-    border: 1px solid;
-    margin-left: 136px;
-    margin-right: 23px;
+    height: 2.9rem;
+    width: 35%;
+    font-size: 1.8rem;
+    border-radius: .2rem;
+    border: none;
+    margin-left: 8rem;
+    margin-right: 1.5rem;
 }
 
 /*****************************************
@@ -79,15 +80,12 @@ h2{
     display: block;
     width: 50%;
     transition: .6s all;
-    border-radius: 3px;
-    margin-top: 5%;
     position: relative;
-    bottom: 80px;
 }
 
 .sun{
-    height: 50px;
-    width: 50px;
+    height: 3.5rem;
+    width: 3.5rem;
     animation: spin 9s infinite linear;
     cursor: pointer;
 }
@@ -99,23 +97,22 @@ h2{
 
 .title{
     font-weight: 100;
-    text-align: left;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     text-align: center;
     color: white;
     margin-top: 0;
 }
 
 .description{
-    margin-top: -60px;
+    margin-top: -3.5rem;
 }
 
 .appBack{
-    height: 320px;
+    height: 21rem;
     width: 52%;
     background: white;
     opacity: .2;
-    border-radius: 5px;
+    border-radius: .3rem;
     position: absolute;
     bottom: 425px;
     left: 310px;
@@ -126,27 +123,27 @@ h2{
 .toDo{
     color: white;
     text-decoration: none;
-    border: 1px solid #FFFFFF;
+    border: .05rem solid #FFFFFF;
     padding: 1% 1% 1% 1%;
     transition: .1s all;
-    border-radius: 3px;
-    font-size: .8em;
-    margin-top: 20px;
+    border-radius: .2rem;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
     display: none;
 }
 
 .exitTo{
     position: relative;
-    left: 63px;
-    bottom: 17px;
+    left: 4.2rem;
+    bottom: 1.2rem;
     background: white;
     color: #778899;
     border-radius: 50%;
-    width: 10px;
+    width: .7rem;
     padding-left: 8px;
     padding-right: 5px;
     transition: .5s all;
-    height: 21px;
+    height: 1.4rem;
     cursor: pointer;
     display: none;
 }
@@ -157,44 +154,40 @@ h2{
 
 .hello{
     display: none;
-    margin-top: -45px;
+    margin-top: 1.5rem;
     border-top: 1px solid white;
     color: white;
     width: 40%;
     position: relative;
     left: 30%;
     text-align: center;
-    padding-bottom: 90px;
+    padding-bottom: 8rem;
 }
 
 .add , .inp{
     display: none;
     position: relative;
     left: 39%;
-    bottom: 13%;
-    bottom: 75px;
-    margin-right: 25px;
+    bottom: 7rem;
+    margin-right: 1.5rem;
 }
 
 .inp{
-    height: 33px;
-    width: 160px;
+    height: 2.2rem;
+    width: 10.5rem;
     font-size: 1.3em;
-    color: #556270;
-    border-radius: 3px;
-    border: 1px solid;
+    border-radius: .2rem;
+    border: none;
 }
 
 .add{
-    height: 36px;
-    width: 115px;
+    height: 2.3rem;
+    width: 7.6rem;
     font-size: 1.1em;
-    color: #556270;
     border-radius: 3px;
     background: white;
-    border: 1px solid;
+    border: none;
     position: relative;
-    bottom: 77px;
     cursor: pointer;
 }
 
@@ -211,6 +204,7 @@ h2{
     color: white;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .todo-item-delete{
