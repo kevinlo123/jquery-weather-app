@@ -99,7 +99,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     let todoItem = $(".inp").val();
     $(".todo-list").append("<li>" +  todoItem + "<button class='todo-item-done'>" + "<i class='fa fa-check' aria-hidden='true'></i>" +
     "</button>" +  "<button class='todo-item-delete'>" + "<i class='fa fa-trash-o' aria-hidden='true'></i>" +
-    "</button>" + "</li>");
+    "</button>" +  "<button class='todo-item-edit'>" +  "<i class='fa fa-pencil' aria-hidden='true'></i>" +  "</button>" + "</li>");
     $(".inp").val("");
   }
 
@@ -108,7 +108,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $(".todo-list").on('click', '.todo-item-delete', function(event){
     event.preventDefault(); // preventing form event from happening
     let item = this;
-    deleteTodoItem(event, item)
+    deleteTodoItem(event, item);
   });
   
   const deleteTodoItem = (event, item) => {
@@ -123,13 +123,26 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $(".todo-list").on('click', '.todo-item-done', function(event){
     event.preventDefault(); // preventing form event from happening
     let item = this;
-    taskDone(event, item)
+    taskDone(event, item);
   });
 
   const taskDone = (event, item) => {
     event.preventDefault(); // preventing form event from happening
     $(item).parent().toggleClass("task-finished");              
   };
+
+  /************************ EDIT BUTTON *******************/
+
+  $(".todo-list").on("click" , ".todo-item-edit" , function(event){
+    event.preventDefault(); 
+    $(this).parent().html("<input type='text' class='input_edit' />" + "<button class='confirm_button'>" + "confirm" + "</button>");    
+    $(".confirm_button").on("click" , function(){
+      let newItem = $(".input_edit").val(); // variable holding value of the input to be interpolated at list item
+      $(this).parent().html(newItem + "<button class='todo-item-done'>" + "<i class='fa fa-check' aria-hidden='true'></i>" +
+      "</button>" +  "<button class='todo-item-delete'>" + "<i class='fa fa-trash-o' aria-hidden='true'></i>" +
+      "</button>" +  "<button class='todo-item-edit'>" +  "<i class='fa fa-pencil' aria-hidden='true'></i>" +  "</button>");
+    });
+  });
 });
 
 
