@@ -40,7 +40,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           const description = (weatherData.weather[0].description);
           const longitude = (weatherData.coord.lon);
           const latitude = (weatherData.coord.lat);        
-          const icon = ("<img src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
+          const icon = ("<img class='json_icon' src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
           const country = (weatherData.sys.country);
           const wind = (weatherData.wind.speed);
           console.log(weatherData);
@@ -53,9 +53,9 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           $(".pressure").append("Pressure: " + pressure + " hpa");
           $(".humidity").append("Humidity: " + humidity + "%")              
           $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
-          $(".toDo").css("margin-left" , 400);
-          $(".toDo").fadeIn();
-          $(".exitTo").fadeIn();
+          //$(".toDo").css("margin" , 150);
+          $(".toDo").fadeIn("slow");
+          $(".exitTo").fadeIn("slow");
           $(".appBack").css("height", 650 + "px");
           $(".appBack").css("top", 10 + "px");
           $(".time").append(("Time: " + new Date().getHours() % 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
@@ -66,7 +66,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $("#getWeather_Btn").on("click" , () => {  // on click function for the fading in of another city user searches didnt work without it*/
     $("p").fadeOut(25); 
     $(".toDo").css("background-color" , "#778899");
-    $(".exitTo").css("margin-left" , 400); // CANCEL BUTTON CSS CHANGE
+    //$(".exitTo").css("margin-left" , 150); // CANCEL BUTTON CSS CHANGE
     $(".hello , .add , .inp").css("display" , "none");
   });
 
