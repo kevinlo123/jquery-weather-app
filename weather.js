@@ -40,7 +40,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           const description = (weatherData.weather[0].description);
           const longitude = (weatherData.coord.lon);
           const latitude = (weatherData.coord.lat);        
-          const icon = ("<img src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
+          const icon = ("<img class='json_icon' src='http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png'>");        
           const country = (weatherData.sys.country);
           const wind = (weatherData.wind.speed);
           console.log(weatherData);
@@ -53,9 +53,9 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           $(".pressure").append("Pressure: " + pressure + " hpa");
           $(".humidity").append("Humidity: " + humidity + "%")              
           $(".cord").append("Coordinates: "+ "Longitude: " + longitude  + " Latitude: " + latitude);
-          $(".toDo").css("margin-left" , 400);
-          $(".toDo").fadeIn();
-          $(".exitTo").fadeIn();
+          //$(".toDo").css("margin" , 150);
+          $(".toDo").fadeIn("slow");
+          $(".exitTo").fadeIn("slow");
           $(".appBack").css("height", 650 + "px");
           $(".appBack").css("top", 10 + "px");
           $(".time").append(("Time: " + new Date().getHours() % 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
@@ -66,7 +66,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $("#getWeather_Btn").on("click" , () => {  // on click function for the fading in of another city user searches didnt work without it*/
     $("p").fadeOut(25); 
     $(".toDo").css("background-color" , "#778899");
-    $(".exitTo").css("margin-left" , 400); // CANCEL BUTTON CSS CHANGE
+    //$(".exitTo").css("margin-left" , 150); // CANCEL BUTTON CSS CHANGE
     $(".hello , .add , .inp").css("display" , "none");
   });
 
@@ -99,7 +99,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
     let todoItem = $(".inp").val();
     $(".todo-list").append("<li>" +  todoItem + "<button class='todo-item-done'>" + "<i class='fa fa-check' aria-hidden='true'></i>" +
     "</button>" +  "<button class='todo-item-delete'>" + "<i class='fa fa-trash-o' aria-hidden='true'></i>" +
-    "</button>" + "</li>");
+    "</button>" +  "<button class='todo-item-edit'>" +  "<i class='fa fa-pencil' aria-hidden='true'></i>" +  "</button>" + "</li>");
     $(".inp").val("");
   }
 
@@ -108,7 +108,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $(".todo-list").on('click', '.todo-item-delete', function(event){
     event.preventDefault(); // preventing form event from happening
     let item = this;
-    deleteTodoItem(event, item)
+    deleteTodoItem(event, item);
   });
   
   const deleteTodoItem = (event, item) => {
@@ -123,13 +123,26 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $(".todo-list").on('click', '.todo-item-done', function(event){
     event.preventDefault(); // preventing form event from happening
     let item = this;
-    taskDone(event, item)
+    taskDone(event, item);
   });
 
   const taskDone = (event, item) => {
     event.preventDefault(); // preventing form event from happening
     $(item).parent().toggleClass("task-finished");              
   };
+
+  /************************ EDIT BUTTON *******************/
+
+  $(".todo-list").on("click" , ".todo-item-edit" , function(event){
+    event.preventDefault(); 
+    $(this).parent().html("<input type='text' class='input_edit' />" + "<button class='confirm_button'>" + "confirm" + "</button>");    
+    $(".confirm_button").on("click" , function(){
+      let newItem = $(".input_edit").val(); // variable holding value of the input to be interpolated at list item
+      $(this).parent().html(newItem + "<button class='todo-item-done'>" + "<i class='fa fa-check' aria-hidden='true'></i>" +
+      "</button>" +  "<button class='todo-item-delete'>" + "<i class='fa fa-trash-o' aria-hidden='true'></i>" +
+      "</button>" +  "<button class='todo-item-edit'>" +  "<i class='fa fa-pencil' aria-hidden='true'></i>" +  "</button>");
+    });
+  });
 });
 
 

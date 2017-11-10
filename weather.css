@@ -4,11 +4,15 @@ html{
     height: 100%;
     font-size: 15px;
 }
+
 body{
     background: linear-gradient(#000428,#004e92);
     width: 100%;
-    height: auto;
+    height: 100%;
+    padding: 0;
     font-family: 'Lato', sans-serif;
+    margin: 0;
+    background-repeat: no-repeat;
 }
 
 p{
@@ -18,14 +22,7 @@ p{
     color: white;
 }
 
-img{
-    position: relative;
-    top: 2rem;
-    height: 5rem;
-    width: 5rem;
-}
-
-ol{
+.todo-list{
     position: relative;
     left: 30rem;
     bottom: 6rem;
@@ -33,11 +30,12 @@ ol{
     color: white;
 }
 
-h2{
-    margin: 0;
+.toDo_cont{
+    margin: 0 auto;
     padding: 0;
     position: relative;
     top: 1.5rem;
+    left: 41%;
 }
 
 /*****************************************
@@ -79,6 +77,7 @@ h2{
     margin: 0 auto;
     display: block;
     width: 50%;
+    height: 100%;
     transition: .6s all;
     position: relative;
 }
@@ -120,12 +119,15 @@ h2{
     transition: .3s all;
 }
 
+.to-do-list-container{
+    height:100%;
+}
 .toDo{
     color: white;
     text-decoration: none;
     border: .05rem solid #FFFFFF;
     padding: 1% 1% 1% 1%;
-    transition: .1s all;
+    transition: .5s all;
     border-radius: .2rem;
     font-size: 1.3rem;
     margin-top: 1.5rem;
@@ -134,7 +136,7 @@ h2{
 
 .exitTo{
     position: relative;
-    left: 4.2rem;
+    left: 57%;
     bottom: 1.2rem;
     background: white;
     color: #778899;
@@ -208,6 +210,7 @@ h2{
 }
 
 .todo-item-delete{
+    margin: 0 10px 0 0px;
     background: red;
     color: white;
     border: none;
@@ -223,6 +226,177 @@ h2{
     cursor: pointer;
 }
 
+.todo-item-edit{
+    background: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 19px;
+    width: 23px; 
+    cursor: pointer; 
+}
+
+.input_edit{
+    height: 1.5rem;
+    width: 6.5rem;
+    font-size: .9em;
+    border-radius: .2rem;
+    border: none;
+}
+
+.confirm_button{
+    border: none;
+    height: 1.5rem;
+    width: 3.3rem;
+    background: white;
+    margin-left: 10px;
+    position: relative;
+    bottom: 4px;
+    border-radius: 3px
+}
 
 /**********************************************************
 ********** REMEMBER TO INCLUDE MEDIA QUERIES***************/
+
+/* IPHONE 5 */
+
+@media only screen and (min-width : 320px){
+
+    .toDo_cont {
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        top: 1.5rem;
+        left: 17%;
+        width: 52%;
+    }
+
+    .appBack{
+        display: none;
+    }
+
+    .main-container{
+        width: 100%;
+    }
+
+    .title{
+        font-size: 2rem;
+    }
+
+    #inputCity , #getWeather_Btn{
+        height: 2.5rem;
+        width: 62%;
+        font-size: 1.5rem;
+        margin: 0 auto;
+        display: block;
+        padding-left: .5rem;
+    }
+
+    #getWeather_Btn {
+        width: 34%;
+        margin-top: 5%;
+    }
+
+    p{
+        font-size: 1rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .todo{
+        padding: 2% 2% 2% 2%;
+    }
+
+    .description{
+        margin-top: -1.5rem;
+    }
+
+    .json_icon{
+        position: relative;
+        top: 1.2rem;
+    }
+
+    .hello {
+        position: relative;
+        left: 0;
+        width: 100%;
+    }
+
+
+    .add, .inp {
+        position: relative;
+        left: 0;
+        margin: 0 0 0 1rem;
+    }
+
+    .todo-list {
+        left: 0;
+        margin: 0 auto;
+        width: 80%;
+    }
+    
+}
+
+/*GALAXY S5*/
+
+@media only screen and (min-width : 360px){
+
+    .title{
+        font-size: 2.3rem;
+    }
+
+    p{
+        font-size: 1.3rem;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .todo{
+        padding: 2% 2% 2% 2%;
+    }
+
+    .add, .inp {
+        position: relative;
+        left: 0;
+        margin: 0 0 0 2rem;
+    }
+    
+} 
+
+/* NEXUS 5S, 6P*/
+
+@media only screen and (min-width : 412px){
+
+    p{
+        font-size: 1.5rem;
+    }
+
+    .exitTo{
+        left: 55%;
+    }
+    
+}   
+
+/* IPAD */
+
+@media only screen and (min-width : 768px){
+
+    p{
+        font-size: 1.8rem;
+    }
+
+    .add, .inp {
+        left: 26%;
+    }
+
+    #inputCity{
+        width: 34%;
+    }
+
+    #getWeather_Btn{
+        width: 21%
+    }
+
+    .toDo_cont{
+        left: 23%;
+    }
+        
+} 
