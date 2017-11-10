@@ -5,7 +5,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
   $(".sun").on("click" , () => { // CLICK EVENT MAKING THE SUN RESET APPLICATION
     $(".toDo").css("display" , "none");
     $(".exitTo").css("display" , "none");
-    $(".appBack").css("height", 320 + "px");
+    $(".appBack").css("height", 450 + "px");
     $(".exitTo").css("display" , "none");
     $(".add").css("display" , "none");
     $("li").css("display" , "none");
@@ -21,7 +21,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
         confirm("please input a location");
         $(".toDo").css("display" , "none");
         $(".exitTo").css("display" , "none");
-        $(".appBack").css("height", 320 + "px");
+        $(".appBack").css("height", 450 + "px");
         $("li").css("display" , "none");        
       }else{
         $("#inputCity").val("");// CLEARING FOR UX PURPOSES
@@ -56,7 +56,7 @@ $(document).ready( () => { // DOCUMENT.READY FUNCTION DONT WANT ANYTHING IN THIS
           //$(".toDo").css("margin" , 150);
           $(".toDo").fadeIn("slow");
           $(".exitTo").fadeIn("slow");
-          $(".appBack").css("height", 650 + "px");
+          $(".appBack").css("height", 750 + "px");
           $(".appBack").css("top", 10 + "px");
           $(".time").append(("Time: " + new Date().getHours() % 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
         }
